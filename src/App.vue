@@ -1,32 +1,56 @@
 <template>
-	<div id="app">
-		<div id="nav">
-			<router-link to="/">Home</router-link>|
-			<router-link to="/about">About</router-link>
-		</div>
-		<router-view />
-	</div>
+  <div id="app" :key="hasLogin">
+    <Layout v-if="hasLogin">
+      <template v-slot:header>
+        header
+      </template>
+      <template v-slot:menu>menu</template>
+      <template v-slot:main>
+        <router-view />
+      </template>
+      <template v-slot:footer>footer</template>
+    </Layout>
+    <div v-if="!hasLogin">
+      <Login />
+    </div>
+  </div>
 </template>
+<script lang="ts">
+import Layout from '@/components/Layout/index.vue';
+import { Component, Vue } from 'vue-property-decorator';
+import { Getter, Mutation } from 'vuex-class';
+import Login from './views/login.vue';
+
+@Component({
+  name: 'App',
+  components: {
+    Layout,
+    Login,
+  },
+})
+export default class App extends Vue {
+  @Getter('PajiModule/hasLogin') private hasLogin;
+
+  @Mutation('PajiModule/handleUpdateLoginStatus') private handleUpdateLoginStatus;
+
+  private mounted() {
+    console.log(this.$route);
+    this.checkLogin()
+  }
+
+  private checkLogin() {
+    const loginStatus = window.localStorage.getItem('userStatus');
+    this.handleUpdateLoginStatus(loginStatus === 'yes');
+  }
+}
+</script>
 
 <style lang="less">
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-}
-
-#nav {
-	padding: 30px;
-
-	a {
-		font-weight: bold;
-		color: #2c3e50;
-
-		&.router-link-exact-active {
-			color: #42b983;
-		}
-	}
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>
