@@ -31,16 +31,17 @@ import Login from './views/login.vue';
 export default class App extends Vue {
   @Getter('PajiModule/hasLogin') private hasLogin;
 
-  @Mutation('PajiModule/handleUpdateLoginStatus') private handleUpdateLoginStatus;
+  @Mutation('PajiModule/updateLoginStatus')
+  private updateLoginStatus;
 
   private mounted() {
     console.log(this.$route);
-    this.checkLogin()
+    this.checkLogin();
   }
 
   private checkLogin() {
     const loginStatus = window.localStorage.getItem('userStatus');
-    this.handleUpdateLoginStatus(loginStatus === 'yes');
+    this.updateLoginStatus(loginStatus === 'yes');
   }
 }
 </script>

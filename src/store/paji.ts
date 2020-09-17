@@ -13,7 +13,7 @@ const getters: GetterTree<PajiState, RootState> = {
 };
 
 const mutations: MutationTree<PajiState> = {
-  handleUpdateLoginStatus(state, data) {
+  updateLoginStatus(state, data) {
     state.loginStatus = data;
   },
 };

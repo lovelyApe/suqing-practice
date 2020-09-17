@@ -11,18 +11,16 @@ import LoginFrame from '@/components/loginFrame/index.vue';
   name: 'Login',
   components: {
     LoginFrame,
-  }
+  },
 })
 export default class Login extends Vue {}
 </script>
 <style lang="less" scoped>
-  .login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-  }
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
 </style>
-
-
