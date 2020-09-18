@@ -10,12 +10,12 @@ const routes: Array<RouteConfig> = [
     name: 'Home',
     component: Home,
   },
-  // {
-  //   path: '/login',
-  //   name: 'Login',
-  //   component: () =>
-  //     import(/* webpackChunkName: 'about' */ '../views/login.vue'),
-  // },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () =>
+      import(/* webpackChunkName: 'about' */ '../views/login.vue'),
+  },
 ];
 
 const router = new VueRouter({

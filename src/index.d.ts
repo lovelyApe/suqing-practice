@@ -1,5 +1,12 @@
 interface PajiState {
   loginStatus: boolean,
+  userInfo: Partial<UserInfo>,
+}
+
+type UserInfo = {
+  userName: string,
+  userId: string,
+  userAvatar: string,
 }
 
 interface LoginForm {

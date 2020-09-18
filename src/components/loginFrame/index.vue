@@ -19,24 +19,29 @@ import { Mutation } from 'vuex-class';
   name: 'LoginFrame',
 })
 export default class LoginFrame extends Vue {
+  // 更新登录状态的mutation
   @Mutation('PajiModule/updateLoginStatus')
   private updateLoginStatus;
 
+  // 登录的form
   private ruleForm: Partial<LoginForm> = {
     name: '',
     password: '',
   };
 
+  // form的rule
   private rules: Partial<RuleType> = {
     name: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
     password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
   };
 
+  // 点击登录
   private submitForm(formName: string): void {
     (this.$refs[formName] as HTMLFormElement).validate(
       (valid: boolean): undefined => {
         if (!valid) return;
         window.localStorage.setItem('userStatus', 'yes');
+        window.localStorage.setItem('userName',`${this.ruleForm.name}`)
         this.$message.success('登录成功');
         this.updateLoginStatus(true);
       }

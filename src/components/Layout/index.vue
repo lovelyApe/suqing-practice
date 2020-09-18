@@ -26,3 +26,13 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 export default class Layout extends Vue {}
 </script>
+<style lang="less" scoped>
+/deep/.el-header,
+.el-footer {
+  padding: 0 !important;
+}
+/deep/.el-main {
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+</style>
