@@ -34,5 +34,7 @@ export default class Layout extends Vue {}
 /deep/.el-main {
   height: calc(100vh - 120px);
   overflow-y: auto;
+  justify-content: flex-start;
+  text-align: left;
 }
 </style>

@@ -24,3 +24,7 @@ type RuleType = {
   name: Partial<RuleItemType>[],
   password: Partial<RuleItemType>[],
 };
+
+declare module 'monaco-editor-vue';
+
+declare module 'echarts';

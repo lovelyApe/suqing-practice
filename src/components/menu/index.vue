@@ -46,6 +46,13 @@ export default class AppMenu extends Vue {
     '/projectDetail': '3',
   };
 
+  private indexEnum = {
+    '1': '/',
+    '2-1': '/userInfo',
+    '2-2': '/changePwb',
+    '3': '/projectList',
+  };
+
   private defaultActive = '1';
 
   @Watch('$route', { immediate: true, deep: true })
@@ -54,13 +61,9 @@ export default class AppMenu extends Vue {
   }
 
   private handleSelectMenu(index) {
-    Object.entries(this.routeEnum).forEach(item => {
-      if (index === item[1]) {
-        if (this.$route.path !== item[0]) {
-          this.$router.push(item[0]);
-        }
-      }
-    });
+    if (this.$route.path !== this.indexEnum[index]) {
+      this.$router.push(this.indexEnum[index]);
+    }
   }
 }
 </script>

@@ -41,7 +41,7 @@ export default class LoginFrame extends Vue {
       (valid: boolean): undefined => {
         if (!valid) return;
         window.localStorage.setItem('userStatus', 'yes');
-        window.localStorage.setItem('userName',`${this.ruleForm.name}`)
+        window.localStorage.setItem('userName', `${this.ruleForm.name}`);
         this.$message.success('登录成功');
         this.updateLoginStatus(true);
       }

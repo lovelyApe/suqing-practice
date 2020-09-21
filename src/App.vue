@@ -6,7 +6,7 @@
       </template>
       <template v-slot:menu><AppMenu /></template>
       <template v-slot:main>
-        <router-view />
+        <router-view style="background: #fff; min-height: 100%" />
       </template>
       <template v-slot:footer>
         <AppFooter />

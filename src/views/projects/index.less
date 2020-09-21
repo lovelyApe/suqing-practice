@@ -1,0 +1,86 @@
+.project-list {
+  padding: 20px;
+  .query-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    .input-with-select {
+      width: 360px;
+    }
+    .mode {
+      display: flex;
+      line-height: 40px;
+      margin-right: 20px;
+      .mode-change {
+        display: flex;
+        .card-wrap {
+          width: 30px;
+          height: 30px;
+          line-height: 33px;
+          margin-top: 3px;
+          cursor: pointer;
+          background: #f7f7f7;
+          margin-left: 2px;
+          color: #aaa;
+          border-radius: 2px;
+        }
+        .card-wrap-active {
+          background: #e3e3e3;
+          box-shadow: 1px 1px 2px #a3a3a3;
+          color: #000;
+        }
+      }
+    }
+  }
+  .table-btn{
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    color: dodgerblue;
+  }
+  .pagination{
+    margin-top: 20px;
+    text-align: right;
+  }
+  .image {
+    width: 100%;
+    cursor: pointer
+  }
+}
+
+.project-detail {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    margin-bottom: 20px;
+  }
+  .info-wrap{
+    flex: 1;
+    display: flex;
+    background: #eee;
+    .left-wrap {
+      position: relative;
+      /deep/.el-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 24px;
+        width: 50px;
+        line-height: 0;
+        text-align: center;
+        padding: 12px 0;
+      }
+    }
+    .editor {
+      border: 10px solid #e3e3e3;
+      border-top: 2px;
+      flex: 2;
+      margin-top: 24px;
+    }
+    .right-wrap {
+      flex: 3;
+    }
+  }
+}
