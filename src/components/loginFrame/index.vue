@@ -38,9 +38,18 @@ export default class LoginFrame extends Vue {
   // 点击登录
   private submitForm(formName: string): void {
     (this.$refs[formName] as HTMLFormElement).validate(
-      (valid: boolean): undefined => {
+      async (valid: boolean): Promise<void> => {
         if (!valid) return;
+        const { code, data, message } = await this.$request.post('', {
+          name: this.ruleForm.name,
+          password: this.ruleForm.password,
+        });
+        if (code !== 200) {
+          this.$message.error(message);
+          return;
+        }
         window.localStorage.setItem('userStatus', 'yes');
+        window.localStorage.setItem('loginData', `${data}`);
         window.localStorage.setItem('userName', `${this.ruleForm.name}`);
         this.$message.success('登录成功');
         this.updateLoginStatus(true);

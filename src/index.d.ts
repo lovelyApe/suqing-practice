@@ -1,3 +1,4 @@
+
 interface PajiState {
   loginStatus: boolean,
   userInfo: Partial<UserInfo>,
@@ -28,3 +29,7 @@ type RuleType = {
 declare module 'monaco-editor-vue';
 
 declare module 'echarts';
+
+
+
+
